@@ -1,0 +1,13 @@
+package org.seckill.mapper;
+
+import org.apache.ibatis.annotations.Param;
+import org.seckill.entity.SuccessKilled;
+
+public interface SuccessKillMapper {
+    //插入购买明细，可过滤重复（联合主键）
+    int insertSuccessKilled(@Param("seckillId")int seckillId, @Param("userId")int userId);
+
+    //根据id查询SuccessKilled并携带Seckill实体
+    SuccessKilled queryByIdWithSeckill(@Param("seckillId")int seckillId, @Param("userPhone")int userPhone);
+
+}
