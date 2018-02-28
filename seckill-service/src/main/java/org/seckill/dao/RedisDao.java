@@ -8,6 +8,9 @@ import org.seckill.entity.SeckillGoods;
 import org.seckill.entity.User;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
+import redis.clients.jedis.Transaction;
+
+import java.security.Key;
 
 public class RedisDao {
     private Logger logger = Logger.getLogger(RedisDao.class);
@@ -76,5 +79,12 @@ public class RedisDao {
         String result = jedis.get(key);
         jedis.close();
         return result;
+    }
+    public void setGoodsNumber(int seckillId,int number){
+        Jedis jedis = jedisPool.getResource();
+        // 监视key
+        String watchkeys = "watchkeys:"+ seckillId;
+        jedis.set(watchkeys,String.valueOf(number));
+        jedis.close();
     }
 }

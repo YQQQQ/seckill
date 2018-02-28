@@ -122,6 +122,7 @@ public class SeckillServiceImpl implements SeckillService {
     @Override
     public SeckillExecution executeSeckill(int seckillId, int userId,String userPhone,String address, String md5) throws SeckillException, RepeatKillExeception, SeckillException {
 
+        // CAS 乐观锁！！！！
         if(md5==null||!md5.equals(getMD5(seckillId))){
             throw new SeckillException("seckill data rewrite");
         }
@@ -159,9 +160,11 @@ public class SeckillServiceImpl implements SeckillService {
     @Override
     public SeckillExecution executeSeckillByProcedure(int seckillId, int userId,String userPhone,String address, String md5) {
 
+        // 网址错误
         if(md5==null||!md5.equals(getMD5(seckillId))){
             return new SeckillExecution(seckillId,SeckillStateEnum.DATA_REWRITE);
         }
+        //秒杀时间
         Date killTime = new Date();
         Map<String,Object> map = new HashMap<String,Object>();
         map.put("seckillId", seckillId);

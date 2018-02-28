@@ -31,6 +31,7 @@ public enum SeckillStateEnum {
     public void setStateInfo(String stateInfo) {
         this.stateInfo = stateInfo;
     }
+
     public static SeckillStateEnum stateOf(int index) {
         for (SeckillStateEnum state : values()) {
             if (state.getState() == index) {

@@ -17,7 +17,6 @@
         sk.address,
         sk.create_time,
         sk.state,
-
         u.address "user.seckill_id",
         u.phone "user.phone",
         from success_killed sk
