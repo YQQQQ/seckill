@@ -1,21 +1,13 @@
 package org.seckill.entity;
 
+import java.util.Date;
+
 public class SuccessKilled {
-    private Integer id;
     private Integer seckillId;
     private Integer userId;
-    private String address;
-    private String phone;
     private Integer state;
-    private String createTime;
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
+    private Date createTime;
+    private SeckillGoods seckillGoods;
 
     public Integer getSeckillId() {
         return seckillId;
@@ -33,22 +25,6 @@ public class SuccessKilled {
         this.userId = userId;
     }
 
-    public String getAddress() {
-        return address;
-    }
-
-    public void setAddress(String address) {
-        this.address = address;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
     public Integer getState() {
         return state;
     }
@@ -57,24 +33,30 @@ public class SuccessKilled {
         this.state = state;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
+    }
+
+    public SeckillGoods getSeckillGoods() {
+        return seckillGoods;
+    }
+
+    public void setSeckillGoods(SeckillGoods seckillGoods) {
+        this.seckillGoods = seckillGoods;
     }
 
     @Override
     public String toString() {
         return "SuccessKilled{" +
-                "id=" + id +
-                ", seckillId=" + seckillId +
+                "seckillId=" + seckillId +
                 ", userId=" + userId +
-                ", address='" + address + '\'' +
-                ", phone='" + phone + '\'' +
                 ", state=" + state +
-                ", createTime='" + createTime + '\'' +
+                ", createTime=" + createTime +
+                ", seckillGoods=" + seckillGoods +
                 '}';
     }
 }

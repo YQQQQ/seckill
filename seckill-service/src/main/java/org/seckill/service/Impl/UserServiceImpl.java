@@ -7,9 +7,11 @@ import org.seckill.dto.SeckillParam;
 import org.seckill.entity.User;
 import org.seckill.mapper.UserMapper;
 import org.seckill.service.UserService;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class UserServiceImpl implements UserService {
 
     private static Logger logger = Logger.getLogger(UserServiceImpl.class);

@@ -29,7 +29,7 @@
         call execute_seckill(
         #{seckillId,jdbcType=INT,mode=IN},
         #{userId,jdbcType=INT,mode=IN},
-        #{phone,jdbcType=VARCHAR,mode=IN},
+        #{userPhone,jdbcType=VARCHAR,mode=IN},
         #{adress,jdbcType=VARCHAR,mode=IN},
         #{killTime,jdbcType=TIMESTAMP,mode=IN},
         #{result,jdbcType=INTEGER,mode=OUT}

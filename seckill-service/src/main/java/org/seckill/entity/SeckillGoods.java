@@ -1,12 +1,14 @@
 package org.seckill.entity;
 
+import java.util.Date;
+
 public class SeckillGoods {
     private Integer seckillId;
     private String name;
     private String number;
-    private String createTime;
-    private String startTime;
-    private String endTime;
+    private Date createTime;
+    private Date startTime;
+    private Date endTime;
 
     public Integer getSeckillId() {
         return seckillId;
@@ -32,27 +34,27 @@ public class SeckillGoods {
         this.number = number;
     }
 
-    public String getCreateTime() {
+    public Date getCreateTime() {
         return createTime;
     }
 
-    public void setCreateTime(String createTime) {
+    public void setCreateTime(Date createTime) {
         this.createTime = createTime;
     }
 
-    public String getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(String startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public String getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(String endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 
