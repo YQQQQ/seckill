@@ -5,21 +5,18 @@ import com.dyuproject.protostuff.ProtostuffIOUtil;
 import com.dyuproject.protostuff.runtime.RuntimeSchema;
 import org.apache.log4j.Logger;
 import org.seckill.entity.SeckillGoods;
-import org.seckill.entity.User;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
 import redis.clients.jedis.Jedis;
 import redis.clients.jedis.JedisPool;
-import redis.clients.jedis.Transaction;
 
-import java.security.Key;
-
+@Repository
 public class RedisDao {
     private Logger logger = Logger.getLogger(RedisDao.class);
 
-    private final JedisPool jedisPool;
+    @Autowired
+    private JedisPool jedisPool;
 
-    public RedisDao(String ip,int port){
-        jedisPool = new JedisPool(ip,port);
-    }
 
     private RuntimeSchema<SeckillGoods> schema = RuntimeSchema.createFrom(SeckillGoods.class);
 

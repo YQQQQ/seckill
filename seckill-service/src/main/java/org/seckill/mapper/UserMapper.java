@@ -1,11 +1,11 @@
 package org.seckill.mapper;
 
-
-import org.apache.ibatis.annotations.Mapper;
 import org.seckill.entity.User;
+import org.springframework.stereotype.Component;
+
 import java.util.List;
 
-@Mapper
+@Component(value = "userMapper")
 public interface UserMapper {
 
     List<User> userList();

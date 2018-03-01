@@ -1,8 +1,11 @@
 package org.seckill.mapper;
 
+
 import org.apache.ibatis.annotations.Param;
 import org.seckill.entity.SuccessKilled;
+import org.springframework.stereotype.Component;
 
+@Component(value = "successKillMapper")
 public interface SuccessKillMapper {
     //插入购买明细，可过滤重复（联合主键）
     int insertSuccessKilled(@Param("seckillId")int seckillId, @Param("userId")int userId,@Param("userPhone") String userPhone,@Param("address") String address);

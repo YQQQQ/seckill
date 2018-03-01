@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("seckill-service/api")
 public class UserController {
     private static Logger logger = Logger.getLogger(UserController.class);
 

@@ -7,6 +7,7 @@ import org.seckill.dto.SeckillParam;
 import org.seckill.entity.User;
 import org.seckill.mapper.UserMapper;
 import org.seckill.service.UserService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -16,6 +17,7 @@ public class UserServiceImpl implements UserService {
 
     private static Logger logger = Logger.getLogger(UserServiceImpl.class);
 
+    @Autowired
     private UserMapper userMapper;
 
     @Override
@@ -29,13 +31,13 @@ public class UserServiceImpl implements UserService {
         int to = from + size;
         List<User> users = userMapper.userList();
 
-        for (User user : users){
-           JSONObject object = new JSONObject();
-           object.put("userId",user.getUserId());
-           object.put("userName",user.getUserName());
-           object.put("phone",user.getPhone());
-           object.put("address",user.getAddress());
-           jsonArray.add(object);
+        for (User user : users) {
+            JSONObject object = new JSONObject();
+            object.put("userId", user.getUserId());
+            object.put("userName", user.getUserName());
+            object.put("phone", user.getPhone());
+            object.put("address", user.getAddress());
+            jsonArray.add(object);
         }
         from = from > jsonArray.size() ? jsonArray.size() : from;
         to = to > jsonArray.size() ? jsonArray.size() : to;

@@ -1,12 +1,13 @@
 package org.seckill.mapper;
-
 import org.apache.ibatis.annotations.Param;
 import org.seckill.entity.SeckillGoods;
+import org.springframework.stereotype.Component;
 
 import java.util.Date;
 import java.util.List;
 import java.util.Map;
 
+@Component(value = "seckillGoodsMapper")
 public interface SeckillGoodsMapper {
 
     //减库存
