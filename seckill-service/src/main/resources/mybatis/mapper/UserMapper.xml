@@ -14,7 +14,7 @@
 
 </select>
 
-    <select id="login">
+    <select id="login" parameterType="java.lang.String" resultType="java.lang.String">
         SELECT password FROM user
         WHERE user_name = #{userName}
     </select>

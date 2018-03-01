@@ -17,6 +17,7 @@ import org.seckill.exception.SeckillException;
 import org.seckill.mapper.SeckillGoodsMapper;
 import org.seckill.mapper.SuccessKillMapper;
 import org.seckill.service.SeckillService;
+import org.seckill.until.DateUntil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.util.DigestUtils;
@@ -56,9 +57,9 @@ public class SeckillServiceImpl implements SeckillService {
             jsonObject.put("seckillId", seckillGoods.getSeckillId());
             jsonObject.put("name", seckillGoods.getName());
             jsonObject.put("number", seckillGoods.getNumber());
-            jsonObject.put("createTime", seckillGoods.getCreateTime());
-            jsonObject.put("startTime", seckillGoods.getStartTime());
-            jsonObject.put("end", seckillGoods.getEndTime());
+            jsonObject.put("createTime", DateUntil.getStringFromDate( seckillGoods.getCreateTime()));
+            jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
+            jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
             jsonArray.add(jsonObject);
         }
         from = from > jsonArray.size() ? jsonArray.size() : from;
@@ -76,9 +77,9 @@ public class SeckillServiceImpl implements SeckillService {
         jsonObject.put("seckillId", seckillGoods.getSeckillId());
         jsonObject.put("name", seckillGoods.getName());
         jsonObject.put("number", seckillGoods.getNumber());
-        jsonObject.put("createTime", seckillGoods.getCreateTime());
-        jsonObject.put("startTime", seckillGoods.getStartTime());
-        jsonObject.put("end", seckillGoods.getEndTime());
+        jsonObject.put("createTime", DateUntil.getStringFromDate( seckillGoods.getCreateTime()));
+        jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
+        jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
         return jsonObject;
     }
 

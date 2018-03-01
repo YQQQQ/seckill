@@ -64,7 +64,8 @@ public class SeckillController {
     public Object execute(int seckillId, int userId, String userPhone, String address, String md5) {
 
         JSONObject jsonObject = new JSONObject();
-        if (Integer.getInteger(seckillService.getById(seckillId).getString("number")).intValue() >=0) {
+        String number = seckillService.getById(seckillId).getString("number");
+        if (Integer.parseInt(number) > 0) {
             //是否有秒杀记录
             if (!redisDao.get(userId).equals(seckillId)) {
                 try {

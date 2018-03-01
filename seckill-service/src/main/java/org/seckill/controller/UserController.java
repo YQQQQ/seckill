@@ -1,11 +1,13 @@
 package org.seckill.controller;
 
 import net.sf.json.JSONObject;
+import org.apache.ibatis.annotations.Param;
 import org.apache.log4j.Logger;
 import org.seckill.dto.SeckillParam;
 import org.seckill.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -17,13 +19,14 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping("/login")
+    @RequestMapping(value = "/login", produces = {"application/json;charset=UTF-8"})
     @ResponseBody
-    public Object login(String userName,String password) {
+    public Object login(String userName, String password) {
         JSONObject result = new JSONObject();
         int code = 0;
+        String pwd = userService.login(userName);
         try {
-            if (!password.equals(userService.login(userName))){
+            if (!pwd.equals(password)){
                 code = -1;
             }else code = 1;
         }catch (Exception e){
