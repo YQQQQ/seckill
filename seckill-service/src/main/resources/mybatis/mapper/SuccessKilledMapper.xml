@@ -9,19 +9,23 @@
         insert ignore into success_killed(seckill_id,user_id,user_phone,addressstate)
         values(#{seckillId},#{userId},#{user_phone},#{address},0)
     </insert>
-    <select id="queryByIdWithSeckill" resultType="SuccessKilled">
-        select
-        sk.seckill_id,
-        sk.user_id,
-        sk.user_phone,
-        sk.address,
-        sk.create_time,
-        sk.state,
-        u.address "user.seckill_id",
-        u.phone "user.phone",
-        from success_killed sk
-        INNER JOIN user u ON  sk.user_id = u.user_id
-        where sk.seckill_id=#{seckillId} and u.user_id=#{userId}
+    <select id="queryByIdWithSeckill" resultType="org.json.JSONObject">
+   select
+		  sk.seckill_id,
+		  u.user_name,
+		  sk.user_phone,
+		  sk.create_time,
+		  sk.state,
+		  s.seckill_id "seckillGoods.seckill_id",
+		  s.name "seckillGoods.name",
+		  s.number "seckillGoods.number",
+		  s.start_time "seckillGoods.start_time",
+		  s.end_time "seckillGoods.end_time",
+		  s.create_time "seckillGoods.create_time"
+		from success_killed sk
+		inner join seckill_goods s on sk.seckill_id = s.seckill_id
+		inner join user u on sk.user_id = u.user_id
+		where sk.seckill_id=#{seckillId} and sk.user_id=#{userId}
     </select>
 
 </mapper>

@@ -31,7 +31,7 @@
         #{seckillId,jdbcType=INTEGER,mode=IN},
         #{userId,jdbcType=INTEGER,mode=IN},
         #{userPhone,jdbcType=VARCHAR,mode=IN},
-        #{adress,jdbcType=VARCHAR,mode=IN},
+        #{address,jdbcType=VARCHAR,mode=IN},
         #{killTime,jdbcType=TIMESTAMP,mode=IN},
         #{result,jdbcType=INTEGER,mode=OUT}
         )

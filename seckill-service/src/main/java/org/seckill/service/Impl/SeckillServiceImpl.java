@@ -182,7 +182,8 @@ public class SeckillServiceImpl implements SeckillService {
             int result = MapUtils.getInteger(map, "result", -2);//result默认为-2
             if (result == 1) {
                 //秒杀成功
-                SuccessKilled sk = successKillMapper.queryByIdWithSeckill(seckillId, userId);
+                JSONObject jsonObject = successKillMapper.queryByIdWithSeckill(seckillId, userId);
+                SuccessKilled sk = new SuccessKilled();
                 return new SeckillExecution(seckillId, SeckillStateEnum.SUCCESS, sk);
             } else {
                 return new SeckillExecution(seckillId, SeckillStateEnum.stateOf(result));
