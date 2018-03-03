@@ -15,7 +15,7 @@ import org.seckill.exception.RepeatKillExeception;
 import org.seckill.exception.SeckillCloseException;
 import org.seckill.exception.SeckillException;
 import org.seckill.mapper.SeckillGoodsMapper;
-import org.seckill.mapper.SuccessKillMapper;
+import org.seckill.mapper.SuccessKilledMapper;
 import org.seckill.service.SeckillService;
 import org.seckill.until.DateUntil;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,7 +34,7 @@ public class SeckillServiceImpl implements SeckillService {
     @Autowired
     private SeckillGoodsMapper seckillGoodsMapper;
     @Autowired
-    private SuccessKillMapper successKillMapper;
+    private SuccessKilledMapper successKilledMapper;
     @Autowired
     private RedisDao redisDao;
 
@@ -57,7 +57,7 @@ public class SeckillServiceImpl implements SeckillService {
             jsonObject.put("seckillId", seckillGoods.getSeckillId());
             jsonObject.put("name", seckillGoods.getName());
             jsonObject.put("number", seckillGoods.getNumber());
-            jsonObject.put("createTime", DateUntil.getStringFromDate( seckillGoods.getCreateTime()));
+            jsonObject.put("createTime", DateUntil.getStringFromDate(seckillGoods.getCreateTime()));
             jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
             jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
             jsonArray.add(jsonObject);
@@ -77,7 +77,7 @@ public class SeckillServiceImpl implements SeckillService {
         jsonObject.put("seckillId", seckillGoods.getSeckillId());
         jsonObject.put("name", seckillGoods.getName());
         jsonObject.put("number", seckillGoods.getNumber());
-        jsonObject.put("createTime", DateUntil.getStringFromDate( seckillGoods.getCreateTime()));
+        jsonObject.put("createTime", DateUntil.getStringFromDate(seckillGoods.getCreateTime()));
         jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
         jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
         return jsonObject;
@@ -95,14 +95,12 @@ public class SeckillServiceImpl implements SeckillService {
             if (seckill != null) {
                 //3.放入redis
                 redisDao.setSeckill(seckill);
+                logger.info(redisDao.get(seckillId));
             } else {
                 return new Exposer(false, seckillId);
             }
         }
-//		Seckill seckill = seckillDao.queryById(seckillId);
-//		if(seckill==null){
-//			return new Exposer(false,seckillId);
-//		}
+
         Date startTime = seckill.getStartTime();
         Date endTime = seckill.getEndTime();
         Date nowTime = new Date();
@@ -132,7 +130,7 @@ public class SeckillServiceImpl implements SeckillService {
         //执行秒杀逻辑：减库存+记录购买行为
         try {
             //记录购买行为
-            int insertCount = successKillMapper.insertSuccessKilled(seckillId, userId, userPhone, address);
+            int insertCount = successKilledMapper.insertSuccessKilled(seckillId, userId, userPhone, address);
             if (insertCount <= 0) {
                 //重复秒杀
                 throw new RepeatKillExeception("seckill repeated");
@@ -144,7 +142,10 @@ public class SeckillServiceImpl implements SeckillService {
                     throw new SeckillCloseException("seckill is closed");
                 } else {
                     //秒杀成功,commit
-                    SuccessKilled successKilled = successKillMapper.queryByIdWithSeckill(seckillId, userId);
+
+                    SuccessKilled successKilled = successKilledMapper.queryByIdWithSeckill(seckillId, userId);
+
+
                     return new SeckillExecution(seckillId, SeckillStateEnum.SUCCESS, successKilled);
                 }
             }
@@ -182,8 +183,8 @@ public class SeckillServiceImpl implements SeckillService {
             int result = MapUtils.getInteger(map, "result", -2);//result默认为-2
             if (result == 1) {
                 //秒杀成功
-                JSONObject jsonObject = successKillMapper.queryByIdWithSeckill(seckillId, userId);
-                SuccessKilled sk = new SuccessKilled();
+                SuccessKilled sk = successKilledMapper.queryByIdWithSeckill(seckillId, userId);
+                logger.info(sk);
                 return new SeckillExecution(seckillId, SeckillStateEnum.SUCCESS, sk);
             } else {
                 return new SeckillExecution(seckillId, SeckillStateEnum.stateOf(result));

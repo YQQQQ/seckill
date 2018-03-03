@@ -84,6 +84,8 @@ public class SeckillController {
                 }
                // redisDao.set(userId, String.valueOf(seckillId));
            // }
+        }else{
+            jsonObject = JSONObject.fromObject(new SeckillResult(false, "库存不足"));
         }
         return jsonObject;
     }
