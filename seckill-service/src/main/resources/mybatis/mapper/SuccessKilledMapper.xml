@@ -19,6 +19,7 @@
 		  s.seckill_id "seckillGoods.seckill_id",
 		  s.name "seckillGoods.name",
 		  s.number "seckillGoods.number",
+		  s.price "seckillGoods.price",
 		  s.create_time "seckillGoods.create_time",
 		  s.start_time "seckillGoods.start_time",
 		  s.end_time "seckillGoods.end_time"

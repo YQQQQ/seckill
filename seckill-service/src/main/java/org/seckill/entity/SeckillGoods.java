@@ -6,6 +6,7 @@ public class SeckillGoods {
     private Integer seckillId;
     private String name;
     private String number;
+    private Integer price;
     private Date createTime;
     private Date startTime;
     private Date endTime;
@@ -58,15 +59,24 @@ public class SeckillGoods {
         this.endTime = endTime;
     }
 
+    public Integer getPrice() {
+        return price;
+    }
+
+    public void setPrice(Integer price) {
+        this.price = price;
+    }
+
     @Override
     public String toString() {
         return "SeckillGoods{" +
                 "seckillId=" + seckillId +
                 ", name='" + name + '\'' +
                 ", number='" + number + '\'' +
-                ", createTime='" + createTime + '\'' +
-                ", startTime='" + startTime + '\'' +
-                ", endTime='" + endTime + '\'' +
+                ", price=" + price +
+                ", createTime=" + createTime +
+                ", startTime=" + startTime +
+                ", endTime=" + endTime +
                 '}';
     }
 }

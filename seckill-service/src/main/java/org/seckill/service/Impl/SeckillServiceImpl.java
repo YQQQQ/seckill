@@ -57,6 +57,7 @@ public class SeckillServiceImpl implements SeckillService {
             jsonObject.put("seckillId", seckillGoods.getSeckillId());
             jsonObject.put("name", seckillGoods.getName());
             jsonObject.put("number", seckillGoods.getNumber());
+            jsonObject.put("price",seckillGoods.getPrice());
             jsonObject.put("createTime", DateUntil.getStringFromDate(seckillGoods.getCreateTime()));
             jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
             jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
@@ -77,6 +78,7 @@ public class SeckillServiceImpl implements SeckillService {
         jsonObject.put("seckillId", seckillGoods.getSeckillId());
         jsonObject.put("name", seckillGoods.getName());
         jsonObject.put("number", seckillGoods.getNumber());
+        jsonObject.put("price",seckillGoods.getPrice());
         jsonObject.put("createTime", DateUntil.getStringFromDate(seckillGoods.getCreateTime()));
         jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
         jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));

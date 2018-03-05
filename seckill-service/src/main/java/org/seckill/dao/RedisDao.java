@@ -11,7 +11,8 @@ import redis.clients.jedis.JedisPool;
 @Repository
 public class RedisDao {
 
-    private final JedisPool jedisPool;
+    @Autowired
+    private  JedisPool jedisPool;
 
     public void setSeckill(SeckillGoods seckill) {
 

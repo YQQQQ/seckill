@@ -28,11 +28,12 @@ public class UserController {
         try {
             if (!pwd.equals(password)){
                 code = -1;
-            }else code = 1;
+            }else code = 200;
         }catch (Exception e){
             logger.error(e.getMessage(),e);
         }
-        result.put("state",code);
+        logger.info(userName +":"+ password);
+        result.put("code",code);
         return result;
     }
 
