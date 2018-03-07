@@ -12,7 +12,7 @@ import java.util.List;
 
 public interface SeckillService {
     // 查询所有秒杀商品
-    JSONObject getSeckillList(SeckillParam seckillParam);
+    JSONObject getSeckillList();
 
     // 查询单个秒杀记录
     JSONObject getById(int seckillId);

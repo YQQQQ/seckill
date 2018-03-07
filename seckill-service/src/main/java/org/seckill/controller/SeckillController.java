@@ -27,9 +27,10 @@ public class SeckillController {
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)//资源
     @ResponseBody
-    public Object list(SeckillParam seckillParam) {
+    public Object list() {
         //获取列表页
-        JSONObject result = seckillService.getSeckillList(seckillParam);
+        JSONObject result = seckillService.getSeckillList();
+        logger.info(result);
         return result;
     }
 

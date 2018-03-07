@@ -17,7 +17,7 @@ public interface SeckillGoodsMapper {
     SeckillGoods queryById(int seckillId);
 
     //根据偏移量查询秒杀商品列表
-    List<SeckillGoods> queryAll(@Param("offset")int offset, @Param("limit")int limit);
+    List<SeckillGoods> queryAll();
 
     //使用存储过程执行秒杀
     void killByProcedure(Map<String,Object> paramMap);

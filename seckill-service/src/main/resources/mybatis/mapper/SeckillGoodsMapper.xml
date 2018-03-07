@@ -18,11 +18,10 @@
         WHERE seckill_id = #{seckillId}
     </select>
 
-    <select id="queryAll" resultType="org.seckill.entity.SeckillGoods" parameterType="java.lang.Integer">
+    <select id="queryAll" resultType="org.seckill.entity.SeckillGoods" >
         select seckill_id, name, number, price,start_time, end_time, create_time
         from seckill_goods
-        order by create_time desc
-        limit #{offset},#{limit}
+
     </select>
 
     <!-- mybatis调用存储过程 -->

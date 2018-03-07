@@ -42,16 +42,12 @@ public class SeckillServiceImpl implements SeckillService {
     private String salt = "foIHhouUU)~@##U)Nog';AGK;+o)oihjiKG.";
 
     @Override
-    public JSONObject getSeckillList(SeckillParam seckillParam) {
+    public JSONObject getSeckillList() {
         JSONArray jsonArray = new JSONArray();
         JSONObject result = new JSONObject();
 
-        int page = (seckillParam.getPage() != null) ? seckillParam.getPage() : 1;
-        int size = (seckillParam.getSize() != null) ? seckillParam.getSize() : 6;
-        int from = (page - 1) * size;
-        int to = from + size;
 
-        List<SeckillGoods> list = seckillGoodsMapper.queryAll(page, size);
+        List<SeckillGoods> list = seckillGoodsMapper.queryAll();
         for (SeckillGoods seckillGoods : list) {
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("seckillId", seckillGoods.getSeckillId());
@@ -63,11 +59,9 @@ public class SeckillServiceImpl implements SeckillService {
             jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
             jsonArray.add(jsonObject);
         }
-        from = from > jsonArray.size() ? jsonArray.size() : from;
-        to = to > jsonArray.size() ? jsonArray.size() : to;
-        List resultArray = jsonArray.subList(from, to);
+
         result.put("total", jsonArray.size());
-        result.put("items", resultArray);
+        result.put("items", jsonArray);
         return result;
     }
 
@@ -81,7 +75,7 @@ public class SeckillServiceImpl implements SeckillService {
         jsonObject.put("price",seckillGoods.getPrice());
         jsonObject.put("createTime", DateUntil.getStringFromDate(seckillGoods.getCreateTime()));
         jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
-        jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
+        jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getEndTime()));
         return jsonObject;
     }
 
