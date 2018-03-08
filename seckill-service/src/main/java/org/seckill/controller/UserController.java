@@ -52,4 +52,18 @@ public class UserController {
         logger.info(seckillParam.toString() + "---->" + result.toString());
         return result;
     }
+    @RequestMapping("/user")
+    @ResponseBody
+    public Object selectByName(String userName) {
+        long startTime = System.currentTimeMillis();
+        JSONObject result = new JSONObject();
+        try {
+            result = userService.selectByName(userName);
+        } catch (Exception e) {
+            logger.error(e.getMessage(), e);
+        }
+        result.put("cost", (System.currentTimeMillis() - startTime) + "ms");
+        logger.info( result.toString());
+        return result;
+    }
 }

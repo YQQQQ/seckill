@@ -63,5 +63,17 @@ public class UserServiceImpl implements UserService {
         return userMapper.insertUser(user);
     }
 
+    @Override
+    public JSONObject selectByName(String userName) {
+        User user = userMapper.selectByName(userName);
+        JSONObject object = new JSONObject();
+        object.put("userId", user.getUserId());
+        object.put("userName", user.getUserName());
+        object.put("phone", user.getPhone());
+        object.put("address", user.getAddress());
+        logger.info(user);
+        return object;
+    }
+
 
 }

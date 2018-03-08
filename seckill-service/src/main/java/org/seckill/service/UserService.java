@@ -14,4 +14,6 @@ public interface UserService {
 
     int createUser(JSONObject jsonObject);
 
+    JSONObject selectByName(String userName);
+
 }
