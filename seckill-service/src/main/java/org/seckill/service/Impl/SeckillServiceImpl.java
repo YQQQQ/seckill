@@ -7,7 +7,6 @@ import org.apache.log4j.Logger;
 import org.seckill.dao.RedisDao;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
-import org.seckill.dto.SeckillParam;
 import org.seckill.entity.SeckillGoods;
 import org.seckill.entity.SuccessKilled;
 import org.seckill.enums.SeckillStateEnum;
@@ -54,6 +53,7 @@ public class SeckillServiceImpl implements SeckillService {
             jsonObject.put("name", seckillGoods.getName());
             jsonObject.put("number", seckillGoods.getNumber());
             jsonObject.put("price",seckillGoods.getPrice());
+            jsonObject.put("imgUrl",seckillGoods.getImgUrl());
             jsonObject.put("createTime", DateUntil.getStringFromDate(seckillGoods.getCreateTime()));
             jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
             jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
@@ -73,6 +73,7 @@ public class SeckillServiceImpl implements SeckillService {
         jsonObject.put("name", seckillGoods.getName());
         jsonObject.put("number", seckillGoods.getNumber());
         jsonObject.put("price",seckillGoods.getPrice());
+        jsonObject.put("imgUrl",seckillGoods.getImgUrl());
         jsonObject.put("createTime", DateUntil.getStringFromDate(seckillGoods.getCreateTime()));
         jsonObject.put("startTime", DateUntil.getStringFromDate(seckillGoods.getStartTime()));
         jsonObject.put("endTime", DateUntil.getStringFromDate(seckillGoods.getEndTime()));
@@ -118,8 +119,6 @@ public class SeckillServiceImpl implements SeckillService {
 
     @Override
     public SeckillExecution executeSeckill(int seckillId, int userId, String userPhone, String address, String md5) throws SeckillException, RepeatKillExeception, SeckillException {
-
-        // CAS 乐观锁！！！！
         if (md5 == null || !md5.equals(getMD5(seckillId))) {
             throw new SeckillException("seckill data rewrite");
         }

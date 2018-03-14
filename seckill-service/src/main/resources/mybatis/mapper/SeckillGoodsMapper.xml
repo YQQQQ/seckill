@@ -13,13 +13,13 @@
     </update>
 
     <select id="queryById" resultType="org.seckill.entity.SeckillGoods" parameterType="java.lang.Integer">
-        select seckill_id, name, number, price,start_time, end_time, create_time
+        select seckill_id, name, number, price,img_url,start_time, end_time, create_time
         from seckill_goods
         WHERE seckill_id = #{seckillId}
     </select>
 
     <select id="queryAll" resultType="org.seckill.entity.SeckillGoods" >
-        select seckill_id, name, number, price,start_time, end_time, create_time
+        select seckill_id, name, number, price,img_url,start_time, end_time, create_time
         from seckill_goods
 
     </select>

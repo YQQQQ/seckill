@@ -7,6 +7,7 @@ public class SeckillGoods {
     private String name;
     private String number;
     private Integer price;
+    private String imgUrl;
     private Date createTime;
     private Date startTime;
     private Date endTime;
@@ -67,6 +68,14 @@ public class SeckillGoods {
         this.price = price;
     }
 
+    public String getImgUrl() {
+        return imgUrl;
+    }
+
+    public void setImgUrl(String imgUrl) {
+        this.imgUrl = imgUrl;
+    }
+
     @Override
     public String toString() {
         return "SeckillGoods{" +
@@ -74,6 +83,7 @@ public class SeckillGoods {
                 ", name='" + name + '\'' +
                 ", number='" + number + '\'' +
                 ", price=" + price +
+                ", imgUrl='" + imgUrl + '\'' +
                 ", createTime=" + createTime +
                 ", startTime=" + startTime +
                 ", endTime=" + endTime +

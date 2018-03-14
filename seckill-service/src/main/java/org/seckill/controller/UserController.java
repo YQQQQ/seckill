@@ -19,7 +19,7 @@ public class UserController {
     @Autowired
     private UserService userService;
 
-    @RequestMapping(value = "/login", produces = {"application/json;charset=UTF-8"})
+    @RequestMapping(value = "/login",method = RequestMethod.POST, produces = {"application/json;charset=UTF-8"})
     @ResponseBody
     public Object login(String userName, String password) {
         JSONObject result = new JSONObject();
