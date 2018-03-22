@@ -1,9 +1,7 @@
 package org.seckill.controller;
 
 import net.sf.json.JSONObject;
-import org.apache.ibatis.annotations.Param;
 import org.apache.log4j.Logger;
-import org.seckill.dto.SeckillParam;
 import org.seckill.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,21 +35,7 @@ public class UserController {
         return result;
     }
 
-    @RequestMapping("/userList")
-    @ResponseBody
-    public Object sreachUser(SeckillParam seckillParam) {
-        long startTime = System.currentTimeMillis();
-        JSONObject result = new JSONObject();
-        try {
-            result = userService.sreachUser(seckillParam);
-        } catch (Exception e) {
-            logger.error(e.getMessage(), e);
-        }
 
-        result.put("cost", (System.currentTimeMillis() - startTime) + "ms");
-        logger.info(seckillParam.toString() + "---->" + result.toString());
-        return result;
-    }
     @RequestMapping("/user")
     @ResponseBody
     public Object selectByName(String userName) {

@@ -3,12 +3,8 @@ package org.seckill.service;
 import net.sf.json.JSONObject;
 import org.seckill.dto.Exposer;
 import org.seckill.dto.SeckillExecution;
-import org.seckill.dto.SeckillParam;
-import org.seckill.entity.SeckillGoods;
 import org.seckill.exception.RepeatKillExeception;
 import org.seckill.exception.SeckillException;
-
-import java.util.List;
 
 public interface SeckillService {
     // 查询所有秒杀商品

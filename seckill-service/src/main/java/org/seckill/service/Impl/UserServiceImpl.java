@@ -3,7 +3,6 @@ package org.seckill.service.Impl;
 import net.sf.json.JSONArray;
 import net.sf.json.JSONObject;
 import org.apache.log4j.Logger;
-import org.seckill.dto.SeckillParam;
 import org.seckill.entity.User;
 import org.seckill.mapper.UserMapper;
 import org.seckill.service.UserService;

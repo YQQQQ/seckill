@@ -53,12 +53,6 @@ public class RedisDao {
         return result;
     }
 
-    public void setGoodsNumber(int seckillId, int number) {
-        Jedis jedis = jedisPool.getResource();
-        // 监视key
-        String watchkeys = "watchkeys:" + seckillId;
-        jedis.set(watchkeys, String.valueOf(number));
-        jedis.close();
-    }
+
 }
 

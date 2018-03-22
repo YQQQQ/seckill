@@ -2,11 +2,17 @@ package org.seckill.until;
 
 import java.io.*;
 
+
 public class SerializeUntils {
+    /**
+     * 序列化
+     * @param obj
+     * @return
+     */
     public static byte[] serialize(Object obj){
         byte[] bytes = null;
         try {
-            ByteArrayOutputStream baos=new ByteArrayOutputStream();;
+            ByteArrayOutputStream baos=new ByteArrayOutputStream();
             ObjectOutputStream oos=new ObjectOutputStream(baos);
             oos.writeObject(obj);
             bytes=baos.toByteArray();
@@ -17,6 +23,12 @@ public class SerializeUntils {
         }
         return bytes;
     }
+
+    /**
+     * 反序列化
+     * @param bytes
+     * @return
+     */
     public static Object deSerialize(byte[] bytes){
         Object obj=null;
         try {
