@@ -1,26 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="e6da8647-5d80-465b-b819-a9451047713b" name="Default" comment="增加price字段&#10;解决跨域问题">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jdk8_2_8_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_datatype_jackson_datatype_jsr310_2_8_10.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__com_fasterxml_jackson_module_jackson_module_parameter_names_2_8_10.xml" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__junit_junit_3_8_1.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_hibernate_hibernate_validator_5_3_6_Final.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/seckill-webpage/pom.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/seckill-webpage/seckill-webpage.iml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/seckill-webpage/src/main/webapp/WEB-INF/web.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/seckill-webpage/src/main/webapp/index.jsp" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/compiler.xml" afterPath="$PROJECT_DIR$/.idea/compiler.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/encodings.xml" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/modules.xml" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+    <list default="true" id="e6da8647-5d80-465b-b819-a9451047713b" name="Default" comment="spring cloud">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seckill-service/seckill-service.iml" afterPath="$PROJECT_DIR$/seckill-service/seckill-service.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seckill-service/src/main/java/org/seckill/service/Impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/seckill-service/src/main/java/org/seckill/service/Impl/UserServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/seckill-service/src/main/java/org/seckill/service/UserService.java" afterPath="$PROJECT_DIR$/seckill-service/src/main/java/org/seckill/service/UserService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_web_1_5_10_RELEASE.xml" afterPath="$PROJECT_DIR$/.idea/libraries/Maven__org_springframework_boot_spring_boot_starter_json_2_0_0_RELEASE.xml" />
     </list>
     <ignored path="$PROJECT_DIR$/target/" />
     <ignored path="$PROJECT_DIR$/seckill-webpage/target/" />
@@ -59,7 +41,7 @@
         <entry file="file://$PROJECT_DIR$/seckill-server/src/main/java/com/example/SeckillServerApplication.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="110">
-              <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+              <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
               <folding />
             </state>
           </provider>
@@ -632,7 +614,14 @@
       <option name="project" value="LOCAL" />
       <updated>1520491924960</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="spring cloud">
+      <created>1522120880803</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1522120880803</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -641,7 +630,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="85366000" />
+    <option name="totallyTimeSpent" value="85454000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -749,7 +738,8 @@
     <MESSAGE value="全部提交" />
     <MESSAGE value="增加price字段&#10;解决跨域问题" />
     <MESSAGE value="更新" />
-    <option name="LAST_COMMIT_MESSAGE" value="更新" />
+    <MESSAGE value="spring cloud" />
+    <option name="LAST_COMMIT_MESSAGE" value="spring cloud" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1090,7 +1080,7 @@
         <state relative-caret-position="44">
           <caret line="17" column="17" lean-forward="false" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="37" />
           <folding>
-            <element signature="imports" expanded="true" />
+            <element signature="imports" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1122,7 +1112,7 @@
     <entry file="file://$PROJECT_DIR$/seckill-server/src/main/java/com/example/SeckillServerApplication.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="110">
-          <caret line="7" column="19" lean-forward="true" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
+          <caret line="7" column="19" lean-forward="false" selection-start-line="7" selection-start-column="19" selection-end-line="7" selection-end-column="19" />
           <folding />
         </state>
       </provider>
