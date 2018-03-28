@@ -8,6 +8,7 @@
     <modules>
         <module>seckill-service</module>
         <module>seckill-server</module>
+        <module>cloud-feign</module>
     </modules>
     <name>seckill Maven Webapp</name>
     <url>http://maven.apache.org</url>

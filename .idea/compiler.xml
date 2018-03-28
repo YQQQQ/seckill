@@ -6,11 +6,13 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="cloud-feign" />
         <module name="seckill-server" />
         <module name="seckill-service" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="cloud-feign" target="1.8" />
       <module name="seckill" target="1.5" />
       <module name="seckill-server" target="1.8" />
       <module name="seckill-service" target="1.6" />
