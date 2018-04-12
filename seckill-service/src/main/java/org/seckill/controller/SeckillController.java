@@ -67,7 +67,8 @@ public class SeckillController {
         String number = seckillService.getById(seckillId).getString("number");
         if (Integer.parseInt(number) > 0) {
             //是否有秒杀记录
-            if (!redisDao.get(userId).equals(seckillId)) {
+            String id = redisDao.get(userId);
+            if (!String.valueOf(seckillId).equals(id)) {
                 try {
                     //存储过程调用
                     SeckillExecution execution = seckillService.executeSeckillByProcedure(seckillId, userId, userPhone, address, md5);
@@ -83,6 +84,7 @@ public class SeckillController {
                     jsonObject = JSONObject.fromObject(new SeckillResult<SeckillExecution>(false, execution));
                 }
                 redisDao.set(userId, String.valueOf(seckillId));
+                logger.info(userId+"----"+userPhone+"----"+address);
             }
         }else{
             jsonObject = JSONObject.fromObject(new SeckillResult(false, "库存不足"));

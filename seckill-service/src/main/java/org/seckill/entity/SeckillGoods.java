@@ -1,8 +1,9 @@
 package org.seckill.entity;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class SeckillGoods {
+public class SeckillGoods implements Serializable{
     private Integer seckillId;
     private String name;
     private String number;

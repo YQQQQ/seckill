@@ -42,11 +42,12 @@ public class RedisDao {
         String key = "seckill:" + userId;
         Jedis jedis = jedisPool.getResource();
         jedis.set(key, value);
+        jedis.expire(key,5);
         jedis.close();
     }
 
-    public String get(int guid) {
-        String key = "seckill:" + guid;
+    public String get(int userId) {
+        String key = "seckill:" + userId;
         Jedis jedis = jedisPool.getResource();
         String result = jedis.get(key);
         jedis.close();
